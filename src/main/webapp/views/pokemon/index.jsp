@@ -6,32 +6,52 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="https://java.sun.com/jsp/jspl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Pokemons</title>
+    <title>Pokémons</title>
+    <jsp:include page="../../templates/head.jsp"/>
+
+
 </head>
-<body>
-<c:if test="${param['result']}">
-    <p><c:out value="${param['message']}"></c:out> </p>
+<jsp:include page="../../templates/navbar.jsp"/>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <body>
+            <c:if test="${param['result']}">
+            <p><c:out value="${param['message']}"></c:out></p>
+            </c:if>
+            <div class="card">
+                <div class="card-header">
+                    POKEMONS
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                        <th>#</th>
+                        <th>Pokemon</th>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="pokemon" items="${pokemons}" varStatus="status">
+                            <tr>
+                                <td>
+                                    <c:out value="${status.count}"></c:out>
+                                </td>
+                                <td>
+                                    <c:out value="${pokemon.name}"></c:out>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-</c:if>
-
-<table>
-    <thead>
-    <th>#</th>
-    <th>Pokemon</th>
-    </thead>
-    <tbody>
-    <c:forEach var="pokemon" items="${pokemons}" varStatus="status">
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
+<jsp:include page="../../templates/footer.jsp"/>
 </body>
 </html>

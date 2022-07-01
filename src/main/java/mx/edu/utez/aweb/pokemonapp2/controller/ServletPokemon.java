@@ -3,8 +3,13 @@ package mx.edu.utez.aweb.pokemonapp2.controller;
 
 import mx.edu.utez.aweb.pokemonapp2.service.pokemon.ServicePokemon;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebServlet(name="ServletPokemon",
@@ -21,15 +26,15 @@ public class ServletPokemon extends HttpServlet {
     ServicePokemon servicePokemon = new ServicePokemon();
 
     @Override
-    protected void doGet(HttpServlettRequest request, HttpServeltResponse response)
-        throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         action = request.getServletPath();
         logger.log(Level.INFO,"Path ->"+action);
         switch (action) {
             case "/get-pokemons":
                 request.setAttribute("pokemons",servicePokemon.getAll());
-                urlRedirect = "/WEB-INF/views/pokemos/index.jsp";
+                urlRedirect = "/views/pokemos/index.jsp";
                 break;
             default:
                 request.setAttribute("pokemons",servicePokemon.getAll());
