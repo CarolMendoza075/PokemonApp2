@@ -40,14 +40,26 @@
                                                      </div>
                                                      //Atributo 3
                                                      <div class="col">
-                                                         <label class="fw-bold" for="health">Puntos de salud</label>
-                                                         <input name="health" id="health"
+                                                         <label class="fw-bold" for="power">Poder</label>
+                                                         <input name="power" id="power"
                                                                 class="form-control"/>
                                                      </div>
                                                      //Atributo 4
                                                      <div class="col">
-                                                         <label class="fw-bold" for="health">Puntos de salud</label>
-                                                         <input name="health" id="health"
+                                                         <label class="fw-bold" for="weight">Peso</label>
+                                                         <input name="weight" id="weight"
+                                                                class="form-control"/>
+                                                     </div>
+                                                     //Atributo 5
+                                                     <div class="col">
+                                                         <label class="fw-bold" for="height">Altura</label>
+                                                         <input name="height" id="height"
+                                                                class="form-control"/>
+                                                     </div>
+                                                     //Atributo 6
+                                                     <div class="col">
+                                                         <label class="fw-bold" for="pokemonType">Puntos de salud</label>
+                                                         <input name="pokemonType" id="pokemonType"
                                                                 class="form-control"/>
                                                      </div>
 
