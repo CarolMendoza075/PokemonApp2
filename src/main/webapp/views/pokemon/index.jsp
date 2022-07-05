@@ -25,7 +25,16 @@
             </c:if>
             <div class="card">
                 <div class="card-header">
-                    POKEMONS
+                    <div class="row">
+                        <div class="col-6"></div>
+                        <div class="col-6 text-end">
+                            <a href="create-pokemon" class="btn btn-outline-sucess btn-sm">
+                                Registrar pokemon
+                            </a>
+                        </div>
+
+
+                    </div>
                 </div>
                 <div class="card-body">
                     <table class="table table-sm table-hover">
