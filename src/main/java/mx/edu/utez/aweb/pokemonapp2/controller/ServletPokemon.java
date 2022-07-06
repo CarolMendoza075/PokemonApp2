@@ -69,12 +69,15 @@ public class ServletPokemon extends HttpServlet {
                         String peso = request.getParameter("weight");
                         String altura = request.getParameter("height");
                         String tipo = request.getParameter("pokemonType");
-                        System.out.println(nombre);
-                        System.out.println(salud);
-                        System.out.println(poder);
-                        System.out.println(peso);
-                        System.out.println(altura);
-                        System.out.println(tipo);
+
+                        BeanPokemon pokemon = new BeanPokemon();
+                        pokemon.setName(nombre);
+                        pokemon.setHealth(Double.parseDouble(salud));
+                        pokemon.setPower(Double.parseDouble(poder));
+                        pokemon.setWeight(Double.parseDouble(peso));
+                        pokemon.setHeight(Double.parseDouble(altura));
+                        pokemon.setPokemonType(tipo);
+
                         break;
                     default:
                         urlRedirect = "/get-pokemons";
