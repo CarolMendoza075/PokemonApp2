@@ -3,7 +3,6 @@ package mx.edu.utez.aweb.pokemonapp2.controller;
 
 import mx.edu.utez.aweb.pokemonapp2.model.pokemon.BeanPokemon;
 import mx.edu.utez.aweb.pokemonapp2.service.pokemon.ServicePokemon;
-import sun.nio.cs.UTF_8;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,12 +33,12 @@ public class ServletPokemon extends HttpServlet {
         throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         action = request.getServletPath();
-        logger.log(Level.INFO,"Path ->"+action);
+        logger.log(Level.INFO, "Path ->" + action);
         switch (action) {
             case "/get-pokemons":
                 List<BeanPokemon> pokemons = servicePokemon.getAll();
                 System.out.println(pokemons.size());
-                request.setAttribute("pokemons",servicePokemon.getAll());
+                request.setAttribute("pokemons", servicePokemon.getAll());
                 urlRedirect = "/views/pokemon/index.jsp";
                 break;
 
@@ -48,42 +47,40 @@ public class ServletPokemon extends HttpServlet {
                 break;
 
             default:
-                request.setAttribute("pokemons",servicePokemon.getAll());
+                request.setAttribute("pokemons", servicePokemon.getAll());
                 urlRedirect = "/get-pokemons";
                 break;
         }
-        request.getRequestDispatcher(urlRedirect).forward(request,response);
+        request.getRequestDispatcher(urlRedirect).forward(request, response);
     }
+        @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException{
+                request.setCharacterEncoding("UTF-8");
+                request.setCharacterEncoding("UTF-8");
+                response.setContentType("text/html");
+                action = request.getServletPath();
 
-    @Override
-    protected void doPost (HttpServletRequest request, HttpServletResponse response)  {
-        throw ServletException, IOException{
-            request.setCharacterEncoding("UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            response.setContentType("text/html");
-            action = request.getServletPath();
-
-            switch (action) {
-                case "/add-pokemon":
-                    String nombre = request.getParameter("name");
-                    String salud = request.getParameter("health");
-                    String poder = request.getParameter("power");
-                    String peso = request.getParameter("weight");
-                    String altura = request.getParameter("height");
-                    String tipo = request.getParameter("pokemonType");
-                    System.out.println(nombre);
-                    System.out.println(salud);
-                    System.out.println(poder);
-                    System.out.println(peso);
-                    System.out.println(altura);
-                    System.out.println(tipo);
-                    break;
-                default:
-                    urlRedirect = "/get-pokemons";
-                    break;
+                switch (action) {
+                    case "/add-pokemon":
+                        String nombre = request.getParameter("name");
+                        String salud = request.getParameter("health");
+                        String poder = request.getParameter("power");
+                        String peso = request.getParameter("weight");
+                        String altura = request.getParameter("height");
+                        String tipo = request.getParameter("pokemonType");
+                        System.out.println(nombre);
+                        System.out.println(salud);
+                        System.out.println(poder);
+                        System.out.println(peso);
+                        System.out.println(altura);
+                        System.out.println(tipo);
+                        break;
+                    default:
+                        urlRedirect = "/get-pokemons";
+                        break;
+                }
+                response.sendRedirect(request.getContextPath() + urlRedirect);
             }
-            response.sendRedirect(request.getContextPath() + urlRedirect);
         }
-    }
 
-}
