@@ -34,9 +34,9 @@ public class DaoPokemon {
                 pokemon.setWeight(rs.getDouble("weight"));
                 pokemons.add(pokemon);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             Logger.getLogger(DaoPokemon.class.getName())
-                    .log(Level.SEVERE,"Error findAll", e);
+                    .log(Level.SEVERE, "Error findAll", e);
 
         } finally {
             closeConnection();
@@ -45,9 +45,9 @@ public class DaoPokemon {
     }
 
     public boolean save(BeanPokemon pokemon) {
-        try{
+        try {
             conn = new MySQLconnection().getConnection();
-            String query = "INSERT INTO pokemons" + "(name, health, power, weigth, height, pokemonType)"+
+            String query = "INSERT INTO pokemons" + "(name, health, power, weigth, height, pokemonType)" +
                     "VALUES (?,?,?,?,?,?)";
             pstm = conn.prepareStatement(query);
             pstm.setString(1, pokemon.getName());
@@ -57,11 +57,17 @@ public class DaoPokemon {
             pstm.setDouble(5, pokemon.getHeight());
             pstm.setString(6, pokemon.getPokemonType());
 
-        }catch (SQLException){
-        }finally {
+            return pstm.executeUpdate() == 1;
+
+        }catch (SQLException e) {
+            Logger.getLogger(DaoPokemon.class.getName())
+                    .log(Level.SEVERE, "ERROR save", e);
+            return false;
+        } finally {
             closeConnection();
         }
     }
+
     public void closeConnection () {
         try{
             if (conn != null) {
