@@ -23,51 +23,83 @@
                              <div class="card-body">
                                  <div class="row">
                                      <div class="col-12">
-                                         <form class="needs-validation" action="add-pokemon" method="post">
+                                         <form class="needs-validation" novalidate action="add-pokemon" method="post">
                                              <div class="form-group mb-3">
                                                  <div class="row">
-                                                     //Atributo 1
+
                                                      <div class="col">
                                                          <label class="fw-bold" for="pokemon">Nombre</label>
-                                                         <input name="name" id="pokemon"
+                                                         <input name="name" id="pokemon" required
                                                          class="form-control"/>
-                                                     </div>
-                                                     //Atributo 2
-                                                     <div class="col">
-                                                         <label class="fw-bold" for="health">Puntos de salud</label>
-                                                         <input name="health" id="health"
-                                                                class="form-control"/>
-                                                     </div>
-                                                     //Atributo 3
-                                                     <div class="col">
-                                                         <label class="fw-bold" for="power">Poder</label>
-                                                         <input name="power" id="power"
-                                                                class="form-control"/>
-                                                     </div>
-                                                     //Atributo 4
-                                                     <div class="col">
-                                                         <label class="fw-bold" for="weight">Peso</label>
-                                                         <input name="weight" id="weight"
-                                                                class="form-control"/>
-                                                     </div>
-                                                     //Atributo 5
-                                                     <div class="col">
-                                                         <label class="fw-bold" for="height">Altura</label>
-                                                         <input name="height" id="height"
-                                                                class="form-control"/>
-                                                     </div>
-                                                     //Atributo 6
-                                                     <div class="col">
-                                                         <label class="fw-bold" for="pokemonType">Puntos de salud</label>
-                                                         <input name="pokemonType" id="pokemonType"
-                                                                class="form-control"/>
+                                                         <div class="invalid-feedback">
+                                                             Campo obligatorio
+                                                         </div>
                                                      </div>
 
+                                                     <div class="col">
+                                                         <label class="fw-bold" for="health">Puntos de salud</label>
+                                                         <input name="health" id="health" required
+                                                                class="form-control"/>
+                                                         <div class="invalid-feedback">
+                                                             Campo obligatorio
+                                                         </div>
+                                                     </div>
                                                  </div>
                                              </div>
-                                             <div class="form-group mb-3"></div>
-                                             <div class="form-group mb-3"></div>
-                                             <div class="form-group mb-3"></div>
+
+
+                                             <div class="form-group mb-3">
+                                                 <div class="row">
+
+                                                     <div class="col">
+                                                         <label class="fw-bold" for="power">Poder</label>
+                                                         <input name="power" id="power" required
+                                                                class="form-control"/>
+                                                         <div class="invalid-feedback">
+                                                             Campo obligatorio
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="col">
+                                                         <label class="fw-bold" for="weight">Peso</label>
+                                                         <input name="weight" id="weight" required
+                                                                class="form-control"/>
+                                                         <div class="invalid-feedback">
+                                                             Campo obligatorio
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+
+                                             <div class="form-group mb-3">
+                                                 <div class="row">
+
+                                                     <div class="col">
+                                                         <label class="fw-bold" for="height">Altura</label>
+                                                         <input name="height" id="height" required
+                                                                class="form-control"/>
+                                                         <div class="invalid-feedback">
+                                                             Campo obligatorio
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="col">
+                                                         <label class="fw-bold" for="pokemonType">Tipo de Pokemon</label>
+                                                         <input name="pokemonType" id="pokemonType" required
+                                                                class="form-control"/>
+                                                         <div class="invalid-feedback">
+                                                             Campo obligatorio
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+
+                                             <div class="form-group mb-3">
+                                                 <div class="row">
+                                                     <div class="col-12 text-end">
+                                                         <button type="button" class="btn btn-danger btn-sm">Cancelar</button>
+                                                         <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+                                             </div>
 
                                          </form>
                                      </div>
@@ -77,6 +109,25 @@
                      </div>
                  </div>
              </div>
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 
 </body>
 </html>

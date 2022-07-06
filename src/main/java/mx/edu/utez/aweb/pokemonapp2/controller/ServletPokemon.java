@@ -39,11 +39,11 @@ public class ServletPokemon extends HttpServlet {
                 List<BeanPokemon> pokemons = servicePokemon.getAll();
                 System.out.println(pokemons.size());
                 request.setAttribute("pokemons",servicePokemon.getAll());
-                urlRedirect = "/views/pokemos/index.jsp";
+                urlRedirect = "/views/pokemon/index.jsp";
                 break;
 
             case "/create-pokemon":
-                urlRedirect = "/views/pokemos/create.jsp";
+                urlRedirect = "/views/pokemon/create.jsp";
                 break;
 
             default:
@@ -51,5 +51,6 @@ public class ServletPokemon extends HttpServlet {
                 urlRedirect = "/get-pokemons";
                 break;
         }
+        request.getRequestDispatcher(urlRedirect).forward(request,response);
     }
 }
