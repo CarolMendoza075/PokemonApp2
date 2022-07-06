@@ -43,6 +43,15 @@ public class DaoPokemon {
         }
         return pokemons;
     }
+
+    public boolean save(BeanPokemon pokemon) {
+        try{
+
+        }catch (SQLException){
+        }finally {
+            closeConnection();
+        }
+    }
     public void closeConnection () {
         try{
             if (conn != null) {

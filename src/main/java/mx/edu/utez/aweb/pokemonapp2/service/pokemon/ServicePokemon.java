@@ -9,6 +9,11 @@ public class ServicePokemon {
     DaoPokemon daoPokemon = new DaoPokemon();
 
     public List<BeanPokemon> getAll() {
+
         return daoPokemon.findAll();
+    }
+
+    public boolean save(BeanPokemon pokemon) {
+        return daoPokemon.save(pokemon);
     }
 }
