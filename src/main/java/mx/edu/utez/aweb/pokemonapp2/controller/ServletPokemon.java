@@ -3,6 +3,7 @@ package mx.edu.utez.aweb.pokemonapp2.controller;
 
 import mx.edu.utez.aweb.pokemonapp2.model.pokemon.BeanPokemon;
 import mx.edu.utez.aweb.pokemonapp2.service.pokemon.ServicePokemon;
+import mx.edu.utez.aweb.pokemonapp2.utils.ResultAction;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -77,7 +78,10 @@ public class ServletPokemon extends HttpServlet {
                         pokemon.setWeight(Double.parseDouble(peso));
                         pokemon.setHeight(Double.parseDouble(altura));
                         pokemon.setPokemonType(tipo);
-
+                        ResultAction result = servicePokemon.save(pokemon);
+                        urlRedirect = "/get-pokemons?result="+
+                                result.isResult()+"&message="+result.getMessage()+
+                                "&status="+result.getStatus();
                         break;
                     default:
                         urlRedirect = "/get-pokemons";
