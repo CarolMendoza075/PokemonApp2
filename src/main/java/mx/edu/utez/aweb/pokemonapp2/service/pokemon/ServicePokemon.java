@@ -32,4 +32,17 @@ public class ServicePokemon {
     public BeanPokemon getPokemon(Long id) {
         return daoPokemon.findOne(id);
     }
+
+    public ResultAction update(BeanPokemon pokemon) {
+        ResultAction result = new ResultAction();
+        if (daoPokemon.update(pokemon)) {
+            result.setStatus(200);
+            result.setResult(false);
+        }else{
+            result.setStatus(400);
+            result.setResult(true);
+            result.setMessage("Ocurrió un error");
+        }
+        return result;
+    }
 }

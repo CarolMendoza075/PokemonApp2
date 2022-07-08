@@ -97,6 +97,28 @@ public class ServletPokemon extends HttpServlet {
                                 result.isResult()+"&message="+result.getMessage()+
                                 "&status="+result.getStatus();
                         break;
+
+                    case "/save-pokemon":
+                        String id = request.getParameter("id");
+                        String nombre2 = request.getParameter("name");
+                        String salud2 = request.getParameter("health");
+                        String poder2 = request.getParameter("power");
+                        String peso2 = request.getParameter("weight");
+                        String altura2 = request.getParameter("height");
+                        String tipo2 = request.getParameter("pokemonType");
+
+                        BeanPokemon pokemon2 = new BeanPokemon();
+                        pokemon2.setName(nombre2);
+                        pokemon2.setHealth(Double.parseDouble(salud2));
+                        pokemon2.setPower(Double.parseDouble(poder2));
+                        pokemon2.setWeight(Double.parseDouble(peso2));
+                        pokemon2.setHeight(Double.parseDouble(altura2));
+                        pokemon2.setPokemonType(tipo2);
+                        ResultAction result2 = servicePokemon.save(pokemon2);
+                        urlRedirect = "/get-pokemons?result="+
+                                result2.isResult()+"&message="+result2.getMessage()+
+                                "&status="+result2.getStatus();
+
                     default:
                         urlRedirect = "/get-pokemons";
                         break;
