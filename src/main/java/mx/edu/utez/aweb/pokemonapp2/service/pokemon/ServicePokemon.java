@@ -30,6 +30,6 @@ public class ServicePokemon {
     }
 
     public BeanPokemon getPokemon(Long id) {
-        return daoPokemon.findOne(Long id);
+        return daoPokemon.findOne(id);
     }
 }

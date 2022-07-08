@@ -30,16 +30,17 @@
                                         <div class="col">
                                             <label class="fw-bold" for="pokemon">Nombre</label>
                                             <input name="name" id="pokemon" required
-                                                   class="form-control"/>
+                                                   class="form-control" value="${pokemon.name}"/>
                                             <div class="invalid-feedback">
                                                 Campo obligatorio
                                             </div>
+                                            <input type="hidden" name="id" value="${pokemon.id}">
                                         </div>
 
                                         <div class="col">
                                             <label class="fw-bold" for="health">Puntos de salud</label>
                                             <input name="health" id="health" required
-                                                   class="form-control"/>
+                                                   class="form-control" value="${pokemon.health}"/>
                                             <div class="invalid-feedback">
                                                 Campo obligatorio
                                             </div>
@@ -54,7 +55,7 @@
                                         <div class="col">
                                             <label class="fw-bold" for="power">Poder</label>
                                             <input name="power" id="power" required
-                                                   class="form-control"/>
+                                                   class="form-control" value="${pokemon.power}"/>
                                             <div class="invalid-feedback">
                                                 Campo obligatorio
                                             </div>
@@ -63,7 +64,7 @@
                                         <div class="col">
                                             <label class="fw-bold" for="weight">Peso</label>
                                             <input name="weight" id="weight" required
-                                                   class="form-control"/>
+                                                   class="form-control" value="${pokemon.weight}"/>
                                             <div class="invalid-feedback">
                                                 Campo obligatorio
                                             </div>
@@ -77,7 +78,7 @@
                                         <div class="col">
                                             <label class="fw-bold" for="height">Altura</label>
                                             <input name="height" id="height" required
-                                                   class="form-control"/>
+                                                   class="form-control" value="${pokemon.height}"/>
                                             <div class="invalid-feedback">
                                                 Campo obligatorio
                                             </div>
@@ -86,7 +87,7 @@
                                         <div class="col">
                                             <label class="fw-bold" for="pokemonType">Tipo de Pokemon</label>
                                             <input name="pokemonType" id="pokemonType" required
-                                                   class="form-control"/>
+                                                   class="form-control" value="${pokemon.pokemonType}"/>
                                             <div class="invalid-feedback">
                                                 Campo obligatorio
                                             </div>
