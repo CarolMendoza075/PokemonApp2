@@ -51,6 +51,9 @@ public class ServletPokemon extends HttpServlet {
                 String id = request.getParameter("id");
                 id = (id==null) ? "0" : id;
                 try{
+                    BeanPokemon pokemon = servicePokemon.getPokemon(Long.parseLong(id));
+                    request.setAttribute("pokemon", pokemon);
+                    urlRedirect = "/views/pokemon/update.jsp";
 
                 }catch (Exception e){
                     urlRedirect = "/get-pokemons";
