@@ -28,4 +28,8 @@ public class ServicePokemon {
         }
         return result;
     }
+
+    public BeanPokemon getPokemon(Long id) {
+        return daoPokemon.findOne(Long id);
+    }
 }

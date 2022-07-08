@@ -68,6 +68,33 @@ public class DaoPokemon {
         }
     }
 
+    public BeanPokemon findOne(Long id) {
+        try{
+            conn = new MySQLconnection().getConnection();
+            String query = "SELECT * FROM pokemons WHERE id = ?";
+            pstm = conn.prepareStatement(query);
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                BeanPokemon pokemon = new BeanPokemon();
+                pokemon.setId(rs.getLong("Id"));
+                pokemon.setName(rs.getString("name"));
+                pokemon.setPokemonType(rs.getString("type"));
+                pokemon.setHealth(rs.getDouble("health"));
+                pokemon.setHeight(rs.getDouble("height"));
+                pokemon.setPower(rs.getDouble("power"));
+                pokemon.setWeight(rs.getDouble("weight"));
+                return pokemon;
+            }
+
+        }catch (SQLException e){
+            Logger.getLogger(DaoPokemon.class.getName())
+                    .log(Level.SEVERE, "Error findOne", e);
+        }finally {
+            closeConnection();
+        }
+        return null;
+    }
+
     public void closeConnection () {
         try{
             if (conn != null) {
