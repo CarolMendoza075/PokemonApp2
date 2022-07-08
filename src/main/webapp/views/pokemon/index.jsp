@@ -53,8 +53,8 @@
                                     <c:out value="${pokemon.name}"></c:out>
                                 </td>
                                 <td>
-                                    <a href="get-pokemon" class="btn btn-warning btn-sm">EDITAR</a>
-                                    <a href="delete-pokemon" class="btn btn-danger btn-sm">ELIMINAR</a>
+                                    <a href="get-pokemon?id=${pokemon.id}$" class="btn btn-warning btn-sm">EDITAR</a>
+                                    <a href="delete-pokemon?id=${pokemon.id}$" class="btn btn-danger btn-sm">ELIMINAR</a>
                                 </td>
                             </tr>
                         </c:forEach>

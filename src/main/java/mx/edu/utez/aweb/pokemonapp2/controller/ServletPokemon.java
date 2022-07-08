@@ -47,6 +47,17 @@ public class ServletPokemon extends HttpServlet {
                 urlRedirect = "/views/pokemon/create.jsp";
                 break;
 
+            case "/get-pokemon":
+                String id = request.getParameter("id");
+                id = (id==null) ? "0" : id;
+                try{
+
+                }catch (Exception e){
+                    urlRedirect = "/get-pokemons";
+                }
+
+                break;
+
             default:
                 request.setAttribute("pokemons", servicePokemon.getAll());
                 urlRedirect = "/get-pokemons";
